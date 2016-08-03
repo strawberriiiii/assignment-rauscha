@@ -11,7 +11,7 @@
 		
 		<h3>{{listTitle}}</h3>
 		
-		<table class="table" ng-hide="isEmployeListEmpty()">
+		<table class="table" ng-hide="isEmployeListNull()">
 			
 			<tr>
 				<th>
@@ -86,7 +86,7 @@
 			</tr>
 		</table>
 		
-		<p ng-show="isEmployeListEmpty()">{{infoText}}</p>
-		<a ng-href="#/addEmploye" ng-show="isEmployeListEmpty()">{{infoText2}}</a>
+		<p ng-show="isEmployeListNull()">{{infoText}}</p>
+		<a ng-href="#/addEmploye" ng-show="isEmployeListNull()">{{infoText2}}</a>
 	</div>
 </div>

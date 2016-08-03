@@ -65,6 +65,10 @@ angular.module('employeApp.MainController', [])
 				if (employe.pID == $scope.employeList[person].pID) {
 					$scope.employeList.splice(person, 1);
 					localStorageService.set('employeList', $scope.employeList);
+					if ($scope.employeList.length == 0) {
+						$scope.employeList = null;
+						localStorageService.remove('employeList');
+					}
 				}
 			}
 		}		
@@ -73,8 +77,8 @@ angular.module('employeApp.MainController', [])
 	/**
 	 * Returns true, if the list of employes is empty
 	 */
-	$scope.isEmployeListEmpty = function() {
-		if ($scope.employeList.length == 0 && localStorageService.length == 0) {
+	$scope.isEmployeListNull = function() {
+		if ($scope.employeList == null) {
 			return true;
 		}
 		return false;
