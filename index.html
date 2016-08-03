@@ -11,8 +11,8 @@
 		<meta name="author" content="Astrid Rauscha">
 		<meta name="description" content="Employes' Directory">
 
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -22,6 +22,10 @@
 		<script src="assets/lib/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 		<script src="assets/lib/angular-1.5.0/angular.js"></script>
 		<script src="assets/lib/angular-1.5.0/angular-route.js"></script>
+		<script src="assets/lib/angular-1.5.0/angular-resource.js"></script>
+		<script src="assets/lib/angular-1.5.0/angular-animate.min.js"></script>
+		<script src="assets/lib/ui-bootstrap-tpls-1.2.5.js"></script>
+		<script src="assets/lib/angular-local-storage.js"></script>
 		
 		<!-- own js files -->
 		<script src="app/app.js"></script>
@@ -34,18 +38,7 @@
 	</head>
 
 	<body ng-controller='MainCtrl as ctrl'>
-		
-		<!-- Navigation -->
-		<nav ng-include="'views/header.html'"></nav>
-
 		<!-- Body -->
-		<section>
-			<div ng-view></div>
-		</section>
-
-		<!-- Footer -->
-		<footer class="footer">
-			{{footerText}}
-		</footer>
+		<div ng-view></div>
 	</body>
 </html>

@@ -1,0 +1,92 @@
+<div class="container">
+	<div class="well">
+		
+		<a class="btn btn-info add" ng-href="#/addEmploye">{{addEmploye}}</a>
+		<label>
+			{{searchLabel}}
+		</label>
+		<input type="text" ng-model="search" class="form-control search"/>
+		<hr />
+		
+		
+		<h3>{{listTitle}}</h3>
+		
+		<table class="table" ng-hide="isEmployeListEmpty()">
+			
+			<tr>
+				<th>
+					{{lastname}}
+				</th>
+				<th>
+					{{firstname}}
+				</th>
+				<th>
+					{{birthdate}}
+				</th>
+				<th>
+					{{gender}}
+				</th>
+				<th>
+					{{pID}}
+				</th>
+				<th>
+					{{email}}
+				</th>
+				<th>
+					{{deleteTitle}}
+				</th>
+			</tr>
+			
+			<tr ng-repeat="employe in employeList | orderBy: 'lastname'" ng-show="search.isEmpty()">
+				<td>
+					{{employe.lastname}}
+				</td>
+				<td>
+					{{employe.firstname}}
+				</td>
+				<td>
+					{{employe.birthdate | date:"dd.MM.yyyy"}}
+				</td>
+				<td>
+					{{employe.gender}}
+				</td>
+				<td>
+					{{employe.pID}}
+				</td>
+				<td>
+					{{employe.email}}
+				</td>
+				<td>
+					<button class="btn btn-default" ng-click="deleteEmploye(employe)"><span class="glyphicon glyphicon-trash"></span></button>
+				</td>
+			</tr>
+			
+			<tr ng-repeat="employe in getSearchedList() | orderBy: 'lastname'" ng-hide="search.isEmpty()">
+				<td>
+					{{employe.lastname}}
+				</td>
+				<td>
+					{{employe.firstname}}
+				</td>
+				<td>
+					{{employe.birthdate | date:"dd.MM.yyyy"}}
+				</td>
+				<td>
+					{{employe.gender}}
+				</td>
+				<td>
+					{{employe.pID}}
+				</td>
+				<td>
+					{{employe.email}}
+				</td>
+				<td>
+					<button class="btn btn-default" ng-click="deleteEmploye(employe)"><span class="glyphicon glyphicon-trash"></span></button>
+				</td>
+			</tr>
+		</table>
+		
+		<p ng-show="isEmployeListEmpty()">{{infoText}}</p>
+		<a ng-href="#/addEmploye" ng-show="isEmployeListEmpty()">{{infoText2}}</a>
+	</div>
+</div>
